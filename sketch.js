@@ -8,7 +8,7 @@ var ball
 var edges
 
 function preload(){
-    music = loadSound("music.mp3");
+    music1 = loadSound("music.mp3");
 }
 
 
@@ -25,13 +25,13 @@ function setup(){
     box4.shapeColor = "green"
     ball  =  createSprite(random(20,750),100,40,40)
     ball.shapeColor = "white"
-    ball.setVelocity(4,3)
+    ball.setVelocity(5,6)
+    
 
 
     //create 4 different surfaces
 
-
-
+    
     //create box sprite and give velocity
 
 }
@@ -39,22 +39,34 @@ function setup(){
 function draw() {
     background("pink");
     edges = createEdgeSprites()
+  
+
     
     if(ball.isTouching(box1)){
         ball.shapeColor= "red"
+       
         ball.bounceOff(box1)
+      
+
+
     }
     if(ball.isTouching(box2)){
         ball.shapeColor=  "blue"
+        music1.stop() 
         ball.bounceOff(box2)
+       
     }
     if(ball.isTouching(box3)){
-        ball.shapeColor= "yellow"
+        ball.shapeColor= "yellow" 
         ball.bounceOff(box3)
+        
     }
     if(ball.isTouching(box4)){
-        ball.shapeColor=  "green"
-        ball.bounceOff(box4)
+        ball.shapeColor=  "green" 
+        music1.play()
+        
+     ball.bounceOff(box4)
+      
     }
     ball.bounceOff(edges)
   
